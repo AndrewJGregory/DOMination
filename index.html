@@ -3,38 +3,27 @@
 <head>
   <meta charset="utf-8">
   <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="./style/reset.css">
+  <link rel="stylesheet" href="./style/style.css">
+  <script src="./lib/domination.js" charset="utf-8"></script>
+  <script src="./lib/todo.js" charset="utf-8"></script>
 </head>
 <body>
-  <link rel="stylesheet" href="style.css">
-  <script src="./lib/domination.js" charset="utf-8"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <div class="first-div">
+  <h1>What are your TODOs?</h1>
+  <div class="form-list">
+    <form>
+      <input
+      type='text'
+      class='title-input'
+      placeholder="Title"></input>
+      <button class='submit-btn'>
+        Create Todo!
+      </button>
+    </form>
+    <ul class='todos-list'>
 
-  </div>
-  <div class="second-div">
-
-  </div>
-
-  <div class="outer-div">
-    <a href="#" class='link'>I'm a link in a div</a>
-  </div>
-
-  <ul>
-    <ul class="cats-list" id="nested-ul">
-      <li>fluffers</li>
-      <li>whiskers</li>
-      <li>minike</li>
-      <li>arlene</li>
     </ul>
-  </ul>
-  <ul class='dogs-lis'>
-    <li>
-      <li class='nested-li'>
-        Woof
-      </li>Barkers
-    </li>
-
-  </ul>
-  <a href="http://www.google.com" class='link'>Google</a>
+  </div>
 </body>
 </html>

@@ -1,0 +1,33 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background: url('../background.jpg');
+  background-size: cover;
+}
+
+h1 {
+  position: fixed;
+  right: 310px;
+  top: 76px;
+  font-size: 40px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 5px;
+  letter-spacing: 1px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-list {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 150px;
+  right: 475px;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
