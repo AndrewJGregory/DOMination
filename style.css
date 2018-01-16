@@ -1,0 +1,20 @@
+div {
+  height: 100px;
+  width: 100px;
+}
+
+.first-div {
+  background-color: red;
+}
+
+.outer-div {
+  background-color: purple;
+}
+
+.second-div {
+  background-color: green;
+}
+
+.ul-div {
+  background-color: yellow;
+}
