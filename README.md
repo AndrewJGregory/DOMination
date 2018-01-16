@@ -1,3 +1,3 @@
 # DOMination
 
-DOMination provides an interface to easily interact with and extract information from the DOM. 
+DOMination uses vanilla JavaScript easily interact with and extract information from the DOM. 
