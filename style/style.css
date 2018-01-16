@@ -28,6 +28,20 @@ form {
   right: 475px;
 }
 
+input {
+  text-align: center;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+    background-color: black;
+    color: white;
+}
+
 ::-webkit-input-placeholder {
   text-align: center;
 }
