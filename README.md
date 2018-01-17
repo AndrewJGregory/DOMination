@@ -4,7 +4,10 @@ DOMination uses vanilla JavaScript to easily manipulate the DOM.
 
 ## How to use
 
-Include an external script in the head of your HTML linking to https://rawgit.com/AndrewJGregory/DOMination/master/lib/domination.js . That's it!
+Include the following in the head of your HTML:
+```
+<script src="https://rawgit.com/AndrewJGregory/DOMination/master/lib/domination.js" charset="utf-8"></script>
+```
 
 ## Features
 
