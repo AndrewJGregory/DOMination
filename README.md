@@ -1,7 +1,6 @@
 # DOMination
 
-DOMination uses vanilla JavaScript to easily manipulate the DOM.
-[Tetrist](http://andrewjgregoryajg.com/Tetrist/) was built entirely with vanilla JavaScript and with the help of DOMination!
+DOMination uses vanilla JavaScript to easily manipulate the DOM. Fundamentally, DOMination wraps HTML elements in a JavaScript object that scales many methods that elements have. [Tetrist](http://andrewjgregoryajg.com/Tetrist/) was built entirely with vanilla JavaScript and with the help of DOMination.
 
 ## How to use
 
