@@ -5,26 +5,31 @@ DOMination uses vanilla JavaScript to easily manipulate the DOM. Fundamentally, 
 ## How to use
 
 Include the following in the head of your HTML:
+
 ```
-<script src="https://cdn.rawgit.com/AndrewJGregory/DOMination/78bdcc3e/lib/domination.js" charset="utf-8"></script>
+<script src="https://cdn.rawgit.com/AndrewJGregory/DOMination/de610a56/lib/domination.js" charset="utf-8"></script>
 ```
 
 ## Features
 
 ### Simple DOM manipulation:
 
-* Grab all divs and add a class:
+- Grab all divs and add a class:
+
 ```
 const allDivs = $d('div');
 allDivs.addClass('active');
 ```
 
-* Select elements by class name or id:
+- Select elements by class name or id:
+
 ```
 const activeEls = $d('.active');
 const board = $d('#chess-board');
 ```
-* Add or remove event listeners to li's:
+
+- Add or remove event listeners to li's:
+
 ```
 const allLis = $d('li');
 allLis.on('click', () => alert("I've been clicked!"))
@@ -34,7 +39,9 @@ allLis.off('click');
 Note that to remove event listeners, you can only provide the type of event without the original callback.
 
 These methods are also chainable:
-* Create a DOMination wrapped li, set the html of it, then append it:
+
+- Create a DOMination wrapped li, set the html of it, then append it:
+
 ```
 const todoList = $d('.todo-list');
 const todoLi = $d.create('li').html('buy milk');
@@ -42,11 +49,13 @@ todoList.append(todoLi);
 ```
 
 ### Constructor function:
+
 `$d()` is extremely versatile. If provided an `HTMLElement`, it will create a `DOMNodeCollection` wrapped collection containing just that element. If simply invoked as `$d()`, then an empty `DOMNodeCollection` will be created. Most importantly, if an element is not found by any CSS type selector, then an `HTMLElement` will be created and wrapped in a `DOMNodeCollection`.
 
 ### Class manipulation
 
 Grab all squares and add a class:
+
 ```
 const greenSquares = $d('.square').addClass('green');
 ```
@@ -71,6 +80,7 @@ $d('.square').removeClass('purple);
 ```
 
 ### Other useful methods
+
 Creating an empty `DOMNodeCollection` with `$d()` is powerful when combined with `concat`. Sometimes, grabbing a particular collection cannot be done in one. `concat` adds elements of one `DOMNodeCollection` to another `DOMNodeCollection`. For example:
 
 ```
@@ -95,27 +105,27 @@ This continually grabs elements with particular coordinates and adds them to a c
 
 All of the methods here abstract away the nitty-gritty of how everything works. Here are some examples of how a few methods actually work:
 
-* `hasAllClass` uses `reduce` to check if **every** element of a `DOMNodeCollection` has one particular class: (HTMLels is the sole internal array in a `DOMNodeCollection` that holds all of the `HTMLElement`s.)
+- `hasAllClass` uses `reduce` to check if **every** element of a `DOMNodeCollection` has one particular class: (HTMLels is the sole internal array in a `DOMNodeCollection` that holds all of the `HTMLElement`s.)
 
-    ```
-    hasAllClass(name) {
-      return this.HTMLels.reduce((acc, HTMLel) => {
-        return acc && Array.from(HTMLel.classList).includes(name);
-    }, true);
+  ```
+  hasAllClass(name) {
+    return this.HTMLels.reduce((acc, HTMLel) => {
+      return acc && Array.from(HTMLel.classList).includes(name);
+  }, true);
   }
-    ```
+  ```
 
-* Similarly, `hasOneClass` only changes the logical operator:
+- Similarly, `hasOneClass` only changes the logical operator:
 
-    ```
-    hasOneClass(name) {
-      return this.HTMLels.reduce((acc, HTMLel) => {
-        return acc || Array.from(HTMLel.classList).includes(name);
-        }, false);
-      }
-    ```
+  ```
+  hasOneClass(name) {
+    return this.HTMLels.reduce((acc, HTMLel) => {
+      return acc || Array.from(HTMLel.classList).includes(name);
+      }, false);
+    }
+  ```
 
-* Finally, `attr(attr, val)` can set the same attribute-value pair for all elements in a collection. Otherwise, it simply retrieves the value of the attribute for the first element in the collection:
+- Finally, `attr(attr, val)` can set the same attribute-value pair for all elements in a collection. Otherwise, it simply retrieves the value of the attribute for the first element in the collection:
 
   ```
   attr(attr, val) {
@@ -131,7 +141,7 @@ All of the methods here abstract away the nitty-gritty of how everything works. 
         }
   ```
 
-* An example from [Tetrist](http://andrewjgregoryajg.com/Tetrist/) when constructing the every square of the board:
+- An example from [Tetrist](http://andrewjgregoryajg.com/Tetrist/) when constructing the every square of the board:
 
   ```
   createSquare(x, y) {
