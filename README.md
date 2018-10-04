@@ -6,7 +6,7 @@ DOMination uses vanilla JavaScript to easily manipulate the DOM. Fundamentally, 
 
 Include the following in the head of your HTML:
 
-```
+```html
 <script src="https://cdn.rawgit.com/AndrewJGregory/DOMination/de610a56/lib/domination.js" charset="utf-8"></script>
 ```
 
@@ -16,24 +16,24 @@ Include the following in the head of your HTML:
 
 - Grab all divs and add a class:
 
-```
-const allDivs = $d('div');
-allDivs.addClass('active');
+```js
+const allDivs = $d("div");
+allDivs.addClass("active");
 ```
 
 - Select elements by class name or id:
 
-```
-const activeEls = $d('.active');
-const board = $d('#chess-board');
+```js
+const activeEls = $d(".active");
+const board = $d("#chess-board");
 ```
 
 - Add or remove event listeners to li's:
 
-```
-const allLis = $d('li');
-allLis.on('click', () => alert("I've been clicked!"))
-allLis.off('click');
+```js
+const allLis = $d("li");
+allLis.on("click", () => alert("I've been clicked!"));
+allLis.off("click");
 ```
 
 Note that to remove event listeners, you can only provide the type of event without the original callback.
@@ -42,9 +42,9 @@ These methods are also chainable:
 
 - Create a DOMination wrapped li, set the html of it, then append it:
 
-```
-const todoList = $d('.todo-list');
-const todoLi = $d.create('li').html('buy milk');
+```js
+const todoList = $d(".todo-list");
+const todoLi = $d.create("li").html("buy milk");
 todoList.append(todoLi);
 ```
 
@@ -56,25 +56,25 @@ todoList.append(todoLi);
 
 Grab all squares and add a class:
 
-```
-const greenSquares = $d('.square').addClass('green');
+```js
+const greenSquares = $d(".square").addClass("green");
 ```
 
 Check if **all** elements in a collection have one particular class:
 
-```
-greenSquares.hasAllClass('green'); // true
+```js
+greenSquares.hasAllClass("green"); // true
 ```
 
 Check if at least **one** element in a collection has one particular class:
 
-```
-$d('.green').hasOneClass('active');
+```js
+$d(".green").hasOneClass("active");
 ```
 
 Add/remove a class to a collection:
 
-```
+```js
 $d('.square').addClass('purple');
 $d('.square').removeClass('purple);
 ```
@@ -83,7 +83,7 @@ $d('.square').removeClass('purple);
 
 Creating an empty `DOMNodeCollection` with `$d()` is powerful when combined with `concat`. Sometimes, grabbing a particular collection cannot be done in one. `concat` adds elements of one `DOMNodeCollection` to another `DOMNodeCollection`. For example:
 
-```
+```js
 const generateCollection = (startXpos, yPos, shapeId, deltas) => {
   let collection = $d();
   let newSqPos, newSq, newYpos, delta, newXpos;
@@ -107,7 +107,7 @@ All of the methods here abstract away the nitty-gritty of how everything works. 
 
 - `hasAllClass` uses `reduce` to check if **every** element of a `DOMNodeCollection` has one particular class: (HTMLels is the sole internal array in a `DOMNodeCollection` that holds all of the `HTMLElement`s.)
 
-  ```
+  ```js
   hasAllClass(name) {
     return this.HTMLels.reduce((acc, HTMLel) => {
       return acc && Array.from(HTMLel.classList).includes(name);
@@ -117,7 +117,7 @@ All of the methods here abstract away the nitty-gritty of how everything works. 
 
 - Similarly, `hasOneClass` only changes the logical operator:
 
-  ```
+  ```js
   hasOneClass(name) {
     return this.HTMLels.reduce((acc, HTMLel) => {
       return acc || Array.from(HTMLel.classList).includes(name);
@@ -127,7 +127,7 @@ All of the methods here abstract away the nitty-gritty of how everything works. 
 
 - Finally, `attr(attr, val)` can set the same attribute-value pair for all elements in a collection. Otherwise, it simply retrieves the value of the attribute for the first element in the collection:
 
-  ```
+  ```js
   attr(attr, val) {
     const validTypes = ['string', 'boolean', 'number'];
     const valType = typeof val;
@@ -143,7 +143,7 @@ All of the methods here abstract away the nitty-gritty of how everything works. 
 
 - An example from [Tetrist](http://andrewjgregoryajg.com/Tetrist/) when constructing the every square of the board:
 
-  ```
+  ```js
   createSquare(x, y) {
     const square = $d.create('div').addClass('square');
     square.attr('x-pos', x);
