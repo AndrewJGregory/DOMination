@@ -105,24 +105,24 @@ This continually grabs elements with particular coordinates and adds them to a c
 
 All of the methods here abstract away the nitty-gritty of how everything works. Here are some examples of how a few methods actually work:
 
-- `hasAllClass` uses `reduce` to check if **every** element of a `DOMNodeCollection` has one particular class: (HTMLels is the sole internal array in a `DOMNodeCollection` that holds all of the `HTMLElement`s.)
+- `hasAllClass` uses `.every` to check if **every** element of a `DOMNodeCollection` has one particular class: (HTMLels is the sole internal array in a `DOMNodeCollection` that holds all of the `HTMLElement`s.)
 
   ```js
   hasAllClass(name) {
-    return this.HTMLels.reduce((acc, HTMLel) => {
-      return acc && Array.from(HTMLel.classList).includes(name);
-  }, true);
+    return this.HTMLels.every(HTMLel =>
+      Array.from(HTMLel.classList).includes(name)
+    );
   }
   ```
 
-- Similarly, `hasOneClass` only changes the logical operator:
+- Similarly, `hasOneClass` uses `.some`:
 
   ```js
-  hasOneClass(name) {
-    return this.HTMLels.reduce((acc, HTMLel) => {
-      return acc || Array.from(HTMLel.classList).includes(name);
-      }, false);
-    }
+   hasOneClass(name) {
+    return this.HTMLels.some(HTMLel =>
+      Array.from(HTMLel.classList).includes(name)
+    );
+  }
   ```
 
 - Finally, `attr(attr, val)` can set the same attribute-value pair for all elements in a collection. Otherwise, it simply retrieves the value of the attribute for the first element in the collection:
